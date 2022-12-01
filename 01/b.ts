@@ -4,13 +4,11 @@ const elves = input.split("\n\n");
 
 const totals = elves.map((elf) => {
   const food = elf.split("\n").map((s) => parseInt(s));
-  const calories = food.reduce((prev, item) => {
-    return prev + item;
-  }, 0);
-
-  return calories;
+  return food.reduce((prev, item) => prev + item, 0);
 });
 
-const order = totals.sort((a, b) => b - a);
+const sorted = totals.sort((a, b) => b - a);
 
-console.log(order[0] + order[1] + order[2]);
+const topThree = sorted.slice(0, 3).reduce((prev, curr) => prev + curr, 0);
+
+console.log(topThree);
