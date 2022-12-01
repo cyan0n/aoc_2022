@@ -12,3 +12,17 @@ const sorted = totals.sort((a, b) => b - a);
 const topThree = sorted.slice(0, 3).reduce((prev, curr) => prev + curr, 0);
 
 console.log(topThree);
+
+console.log(
+  input
+    .split("\n\n")
+    .map((e) =>
+      e
+        .split("\n")
+        .map((s) => parseInt(s))
+        .reduce((a, b) => a + b, 0),
+    )
+    .sort((a, b) => b - a)
+    .slice(0, 3)
+    .reduce((a, b) => a + b),
+);
