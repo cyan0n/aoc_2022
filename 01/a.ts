@@ -13,5 +13,4 @@ elves.forEach((elf) => {
     most = calories;
   }
 });
-
 console.log(most);

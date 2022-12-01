@@ -15,49 +15,16 @@
   // 	],
   // 	"description": "Log output to console"
   // }
-  "Typescript React Function Component": {
-    "prefix": "rfc",
+  "Advent of Code": {
+    "prefix": "adv",
     "body": [
-      "interface ${TM_FILENAME_BASE/(.*)/${1:/capitalize}/g}Props {",
+      "const input = await Deno.readTextFile('./input.txt');",
+      "",
       "$1",
-      "}",
       "",
-      "const ${TM_FILENAME_BASE/(.*)/${1:/capitalize}/g} = ({$2}:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/g}Props) => {",
-      "\treturn <>$3</>;",
-      "}",
-      "",
-      "export default ${TM_FILENAME_BASE/(.*)/${1:/capitalize}/g};"
+      "console.log()"
     ],
-    "description": "Typescript React Function Component"
-  },
-  "Inline functional component": {
-    "prefix": "ifc",
-    "body": ["const $1 = () => {", "\treturn <>$2</>;", "}"]
-  },
-  "Export inline functional component": {
-    "prefix": "xfc",
-    "body": ["export const $1 = () => {", "\treturn <>$2</>;", "}"]
-  },
-  "Typescript React Three Fiber Function Component": {
-    "prefix": "r3ffc",
-    "body": [
-      "import * as THREE from 'three'",
-      "",
-      "interface ${TM_FILENAME_BASE/(.*)/${1:/capitalize}/g}Props {",
-      "$1",
-      "}",
-      "",
-      "const ${TM_FILENAME_BASE/(.*)/${1:/capitalize}/g} = ({$2}:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/g}Props) => {",
-      "\treturn <>$3</>;",
-      "}",
-      "",
-      "export default ${TM_FILENAME_BASE/(.*)/${1:/capitalize}/g};"
-    ],
-    "description": "Typescript React Function Component"
-  },
-  "Import THREE": {
-    "prefix": "imp3",
-    "body": ["import * as THREE from 'three'"]
+    "description": "Advent of Code"
   },
   "console.log": {
     "prefix": "cl",
