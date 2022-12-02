@@ -1,37 +1,29 @@
+import mapFromArrays from "../utils/mapFromArrays.ts";
+
 const input = await Deno.readTextFile("./input.txt");
-// A Rock
-// B Paper
-// C Scissors
+// A X Rock 1
+// B Y Paper 2
+// C Z Scissors 3
 
-// X 1
-// Y 2
-// Z 3
+// Lose 0
+// Tie 3
+// Won 6
 
-// 0 lost
-// 3 tie
-// 6 Won
 const rounds = input.split("\n");
+const elvish = ["A", "B", "C"] as const;
+const meish = ["X", "Y", "Z"] as const;
+const points = [1, 2, 3] as const;
+const dictionary = mapFromArrays(elvish, meish);
+const my_points = mapFromArrays(meish, points);
+const elf_points = mapFromArrays(elvish, points);
 
 const rules = ["C", "A", "B", "C", "A"];
 
-const points = {
-  X: 1,
-  Y: 2,
-  Z: 3,
-};
-const convert = {
-  X: "A",
-  Y: "B",
-  Z: "C",
-};
-type K = keyof typeof points;
-type KK = keyof typeof convert;
-
 const totalScore = rounds
   .map((round) => {
-    const [elf, me] = round.split(" ") as [string, string];
-    let score = points[me as K];
-    if (elf === convert[me as KK]) {
+    const [elf, me] = round.split(" ") as MapEntity<typeof dictionary>;
+    let score = my_points.get(me)!;
+    if (me === dictionary.get(elf)) {
       score += 3;
     } else if (elf === rules[score - 1]) {
       score += 6;
