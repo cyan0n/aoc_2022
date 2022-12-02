@@ -1,3 +1,4 @@
+// deno-lint-ignore-file no-explicit-any
 const mapFromArrays = <
   KT extends Unarray<K>,
   VT extends Unarray<V>,
