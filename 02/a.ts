@@ -1,6 +1,8 @@
-import mapFromArrays from "../utils/mapFromArrays.ts";
+// @deno-types="/utils/types.d.ts"
+import mapFromArrays from "utils/mapFromArrays.ts";
 
 const input = await Deno.readTextFile("./input.txt");
+
 // A X Rock 1
 // B Y Paper 2
 // C Z Scissors 3
