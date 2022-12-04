@@ -1,5 +1,9 @@
 class Input {
-  constructor(private content: string) {}
+  private content: string;
+
+  constructor(path: string) {
+    this.content = Deno.readTextFileSync(path);
+  }
 
   public all(): string {
     return this.content;
