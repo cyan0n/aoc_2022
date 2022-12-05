@@ -20,7 +20,10 @@ await new Command()
   .option("-p, --part <part:part-type>", "Set which part to solve.", {
     default: "a" as const,
   })
-  .action(({ day, part }) => {
-    watchSolution(day, part);
+  .option("-y --year <year:number>", "Set", {
+    default: today.getFullYear(),
+  })
+  .action(({ day, part, year }) => {
+    watchSolution(day, part, year);
   })
   .parse(Deno.args);

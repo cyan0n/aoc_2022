@@ -2,9 +2,13 @@ import { join } from "https://deno.land/std@0.167.0/path/mod.ts";
 import { tty } from "https://deno.land/x/cliffy@v0.25.5/ansi/tty.ts";
 
 const INPUT_FILE = "input.txt";
+const BASE_PATH = "./solutions";
 
-const watchSolution = async (day: number, part: "a" | "b") => {
-  const dir_path = join(".", day.toString()).padStart(2, "0");
+const watchSolution = async (day: number, part: "a" | "b", year: number) => {
+  const dir_path = join(BASE_PATH, year.toString(), day.toString()).padStart(
+    2,
+    "0",
+  );
   const file_name = `${part}.ts`;
   const file_path = join(dir_path, file_name);
   const input_path = join(dir_path, INPUT_FILE);
@@ -38,7 +42,7 @@ const createFilestructure = async (dir_path: string, file_path: string) => {
     if (!(error instanceof Deno.errors.NotFound)) {
       throw error;
     }
-    await Deno.copyFile("./template.ts", file_path);
+    await Deno.copyFile(join(BASE_PATH, "template.ts"), file_path);
   }
 
   try {

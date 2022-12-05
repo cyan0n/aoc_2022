@@ -1,6 +1,7 @@
 {
   "imports": {
     "utils/": "./utils/",
+    "types/": "./types/",
     "/": "./",
     "./": "./"
   }

@@ -1,5 +1,5 @@
-// @deno-types="/utils/types.d.ts"
-import mapFromArrays from "../utils/mapFromArrays.ts";
+// @deno-types="/types/types.d.ts"
+import mapFromArrays from "/utils/mapFromArrays.ts";
 
 const input = await Deno.readTextFile("./input.txt");
 const [initState, procedures] = input
@@ -42,7 +42,7 @@ procedures.forEach((procedure) => {
   const fromCol = crates.get(from)!;
   const toCol = crates.get(to)!;
   const fromIdx = fromCol.length - move;
-  const selected = fromCol.splice(fromIdx < 0 ? 0 : fromIdx).reverse();
+  const selected = fromCol.splice(fromIdx < 0 ? 0 : fromIdx);
   toCol.push(...selected);
 });
 

@@ -1,4 +1,4 @@
-// @deno-types="/utils/types.d.ts"
+// @deno-types="/types/types.d.ts"
 import mapFromArrays from "utils/mapFromArrays.ts";
 
 const input = await Deno.readTextFile("./input.txt");
