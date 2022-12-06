@@ -1,19 +1,12 @@
 // @deno-types="/types/types.d.ts"
 
-const input = await Deno.readTextFile("./input.txt");
+const input = (await Deno.readTextFile("./test.txt")).split("");
 
-const lastFour: string[] = [];
+const uniqueLength = 4;
 
-const pos = input.split("").findIndex((char) => {
-  if (lastFour.length === 4) {
-    const set = new Set(lastFour);
-    if (set.size === 4) {
-      return true;
-    }
-    lastFour.shift();
-  }
-  lastFour.push(char);
-  return false;
-});
+const position =
+  input.findIndex(
+    (_, i) => new Set([...input].splice(i, uniqueLength)).size === uniqueLength,
+  ) + uniqueLength;
 
-console.log(pos);
+console.log(position);
