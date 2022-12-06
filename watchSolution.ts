@@ -5,9 +5,10 @@ const INPUT_FILE = "input.txt";
 const BASE_PATH = "./solutions";
 
 const watchSolution = async (day: number, part: "a" | "b", year: number) => {
-  const dir_path = join(BASE_PATH, year.toString(), day.toString()).padStart(
-    2,
-    "0",
+  const dir_path = join(
+    BASE_PATH,
+    year.toString(),
+    day.toString().padStart(2, "0"),
   );
   const file_name = `${part}.ts`;
   const file_path = join(dir_path, file_name);
