@@ -1,4 +1,4 @@
-import { join } from "https://deno.land/std@0.167.0/path/mod.ts";
+import { join, dirname } from "https://deno.land/std@0.167.0/path/mod.ts";
 import { tty } from "https://deno.land/x/cliffy@v0.25.5/ansi/tty.ts";
 
 const INPUT_FILE = "input.txt";
@@ -27,7 +27,15 @@ const watchSolution = async (day: number, part: "a" | "b", year: number) => {
 
 const createFilestructure = async (dir_path: string, file_path: string) => {
   const input_path = join(dir_path, INPUT_FILE);
+
   // Create directories
+  try {
+    await Deno.mkdir(dirname(dir_path));
+  } catch (error) {
+    if (!(error instanceof Deno.errors.AlreadyExists)) {
+      throw error;
+    }
+  }
   try {
     await Deno.mkdir(dir_path);
   } catch (error) {
