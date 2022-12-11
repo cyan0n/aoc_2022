@@ -14,7 +14,7 @@ input.forEach((line, idx) => {
     rowIdx += 40;
   }
   const modReg = reg + rowIdx;
-  crt.push(idx >= modReg - 1 && idx <= modReg + 1 ? "#" : ".");
+  crt.push(idx >= modReg - 1 && idx <= modReg + 1 ? "█" : " ");
 
   if (!line.includes("noop")) {
     reg += parseInt(line.split(" ")[1]);
